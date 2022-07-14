@@ -1,25 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-
-
+import { AuthStoreService } from "./services/auth-store.service";
+import { MessagesService } from "./messages/messages.service";
+import { LoadingService } from "./loading/loading.service";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+  // providers: [LoadingService, MessagesService],
 })
-export class AppComponent implements  OnInit {
+export class AppComponent implements OnInit {
+  constructor(public auth: AuthStoreService) {}
 
-    constructor() {
-
-    }
-
-    ngOnInit() {
-
-
-    }
+  ngOnInit() {}
 
   logout() {
-
+    this.auth.logout();
   }
-
 }
